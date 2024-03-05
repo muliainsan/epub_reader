@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MenuPage(),
+      home: const MenuPage(),
       routes: {
         // '/intropage': (context) => const IntroPage(),
-        '/menupage': (context) => MenuPage(),
+        '/menupage': (context) => const MenuPage(),
         // '/cartpage': (context) => const CartPage(),
       },
     );

@@ -1,8 +1,6 @@
 import "package:epub_reader/models/book.dart";
 import "package:epub_view/epub_view.dart";
 import "package:flutter/material.dart";
-import "package:google_fonts/google_fonts.dart";
-import "package:epub_reader/Components/button.dart";
 
 class ReaderPage extends StatefulWidget {
   final Book book;

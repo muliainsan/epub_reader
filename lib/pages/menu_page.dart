@@ -1,13 +1,13 @@
 import 'package:epub_reader/Components/book_tile.dart';
 import 'package:epub_reader/models/book.dart';
 import 'package:epub_reader/pages/reader_page.dart';
-import 'package:epub_view/epub_view.dart';
+import 'package:epub_reader/pages/reader_page_vocsy.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:epub_reader/Components/button.dart';
 
 class MenuPage extends StatefulWidget {
-  MenuPage({super.key});
+  const MenuPage({super.key});
 
   @override
   State<MenuPage> createState() => _MenuPageState();
@@ -16,9 +16,6 @@ class MenuPage extends StatefulWidget {
 @override
 class _MenuPageState extends State<MenuPage> {
   void navigateToBookReader(int index) {
-    // final shop = context.read<Shop>();
-    // final foodMenu = shop.foodMenu;
-
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -27,7 +24,13 @@ class _MenuPageState extends State<MenuPage> {
                 )));
   }
 
+  void navigateToVocsyBookReader(int index) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const VocsyReaderPage()));
+  }
+
   // TODO: implement createState
+  // ignore: non_constant_identifier_names
   final List<Book> BookList = [
     Book(
       name: "Al-Fatihah",
@@ -61,7 +64,7 @@ class _MenuPageState extends State<MenuPage> {
         itemCount: BookList.length,
         itemBuilder: (context, index) => BookTile(
           book: BookList[index],
-          onTap: () => navigateToBookReader(index),
+          onTap: () => navigateToVocsyBookReader(index),
         ),
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),

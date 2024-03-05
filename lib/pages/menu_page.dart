@@ -1,12 +1,33 @@
 import 'package:epub_reader/Components/book_tile.dart';
 import 'package:epub_reader/models/book.dart';
+import 'package:epub_reader/pages/reader_page.dart';
+import 'package:epub_view/epub_view.dart';
 import 'package:flutter/material.dart';
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:epub_reader/Components/button.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
   MenuPage({super.key});
 
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+@override
+class _MenuPageState extends State<MenuPage> {
+  void navigateToBookReader(int index) {
+    // final shop = context.read<Shop>();
+    // final foodMenu = shop.foodMenu;
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => ReaderPage(
+                  book: BookList[index],
+                )));
+  }
+
+  // TODO: implement createState
   final List<Book> BookList = [
     Book(
       name: "Al-Fatihah",
@@ -40,7 +61,7 @@ class MenuPage extends StatelessWidget {
         itemCount: BookList.length,
         itemBuilder: (context, index) => BookTile(
           book: BookList[index],
-          onTap: () => navigateTo,
+          onTap: () => navigateToBookReader(index),
         ),
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
